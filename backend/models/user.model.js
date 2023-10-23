@@ -56,6 +56,7 @@ userSchema.pre("save", async function(next) {
     next();
 });
 
+// logIn
 userSchema.statics.login = async function(email, password) {
     const user = await this.findOne({ email });
     if (user) {
