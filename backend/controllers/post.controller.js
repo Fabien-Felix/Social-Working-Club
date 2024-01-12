@@ -6,7 +6,7 @@ const ObjectID = require('mongoose').Types.ObjectId;
 // readPost
 module.exports.readPost = async (req, res) => {
     try {
-        const docs = await PostModel.find();
+        const docs = await PostModel.find().sort({ createdAt: -1 });;
         res.send(docs);
     } catch (err) {
         console.log('Error to get data : ' + err);
@@ -131,8 +131,8 @@ module.exports.commentPost = async (req, res) => {
                     comments: {
                         commenterId: req.body.commenterId,
                         commenterPseudo: req.body.commenterPseudo,
-                        text: res.body.text,
-                        timesStamp: new Date().getTime()
+                        text: req.body.text,
+                        timestamp: new Date().getTime()
                     }
                 }
             },
