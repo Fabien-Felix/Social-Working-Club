@@ -1,0 +1,9 @@
+<main>
+    <form [formGroup]="loginForm" class="form_container">
+        <p class="form_container_heading">Connexion</p>
+        <input formControlName="username" class="form_container_inputs" type="email" placeholder="email@gmail.com">
+        <input formControlName="password" class="form_container_inputs" type="password" placeholder="********">
+        <button (click)="goHome()" [disabled]="loginForm.invalid" class="form_container_button">Connexion</button>
+        <p>Vous n'avez pas de compte ? <a class="form_container_link" href="#">Créer un compte !</a></p>
+    </form>
+</main>

@@ -1,9 +1,10 @@
-const mongoose = require("mongoose");
+const { Schema, mongoose } = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt")
 
 const userSchema = new mongoose.Schema(
     {
+        _id: Schema.Types.ObjectId,
         pseudo: {
             type: String,
             required: true,
@@ -29,16 +30,6 @@ const userSchema = new mongoose.Schema(
             required: true,
             max: 1024,
             minlength: 6
-        },
-        bio: {
-            type: String,
-            max: 1024,
-        },
-        followers: {
-            type: [String]
-        },
-        following: {
-            type: [String]
         },
         likes: {
             types: [String]
