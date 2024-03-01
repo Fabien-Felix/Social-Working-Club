@@ -1,2 +1,3 @@
+# Ignore les fichier
 /node_modules
 /config/.env

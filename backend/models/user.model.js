@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt")
 
 const userSchema = new mongoose.Schema(
     {
-        _id: Schema.Types.ObjectId,
         pseudo: {
             type: String,
             required: true,

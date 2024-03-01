@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService, UserFormValue } from '../services/auth.service';
 
 
 @Component({
@@ -21,14 +21,14 @@ export class ConnectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ["test"],
-      password: ["test"]
+      username: ["junior@gmail.com"],
+      password: ["junior124"],
     })
   }
   goHome(): void {
     this.authService.login(this.loginForm.value).subscribe(
       (res:any)=>{
-        if(res.user){
+        if(res){
           this.authService.currentUser = res.user
           this.router.navigateByUrl('/home')
         } else {
